@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagination Example</title>
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .pagination button {
+        padding: 5px 10px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .pagination span {
+        padding: 5px 10px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    .pagination button:hover,
+    .pagination span:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+</head>
+<body>
+
+<script>
+    // Function to create pagination
+    function createPagination(totalPages) {
+        const paginationContainer = document.createElement('div');
+        paginationContainer.classList.add('pagination');
+
+        // Previous button
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Previous';
+        prevButton.classList.add('prev');
+        paginationContainer.appendChild(prevButton);
+
+        // Pagination numbers
+        for (let i = 1; i <= totalPages; i++) {
+            const pageNumber = document.createElement('span');
+            pageNumber.textContent = i;
+            paginationContainer.appendChild(pageNumber);
+        }
+
+        // Next button
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Next';
+        nextButton.classList.add('next');
+        paginationContainer.appendChild(nextButton);
+
+        document.body.appendChild(paginationContainer);
+    }
+
+    // Call the function with the number of total pages
+    createPagination(5); // Example: 5 pages
+</script>
+
+</body>
+</html>
